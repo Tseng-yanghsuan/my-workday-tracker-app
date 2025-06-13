@@ -1,0 +1,292 @@
+/* frontend/src/App.css */
+
+/* --- 全域樣式和重置 --- */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  background-color: #f0f2f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* --- App 組件的整體容器 --- */
+.App {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* --- 主標題 "Workday Tracker" --- */
+.main-title {
+  font-family: 'Georgia', serif;
+  font-size: 2.8em;
+  color: #2c3e50;
+  margin-bottom: 50px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+}
+
+/* --- 卡片通用樣式 --- */
+.card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 20px 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- 卡片內的通用標題樣式 --- */
+.card-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+/* --- 頂部卡片容器 --- */
+.top-cards-container {
+  display: grid;
+  grid-template-columns: 200px 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 30px;
+  align-items: stretch;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- 底部管理區塊樣式 (新增待辦事項和標籤管理) --- */
+.manage-section {
+  width: 100%;
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.manage-section h2 {
+  text-align: left;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+/* 通用輸入框和按鈕樣式 */
+.input-field {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+.button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+  white-space: nowrap; /* 防止文字換行 */
+}
+
+.button.primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.button.primary:hover {
+  background-color: #0056b3;
+}
+
+.button.secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.button.secondary:hover {
+  background-color: #5a6268;
+}
+
+.add-tag {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.tag-list {
+  list-style: none;
+  padding: 0;
+}
+
+.tag-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.tag-list li:last-child {
+  border-bottom: none;
+}
+
+.tag-list li .delete-button {
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 0.8em;
+  transition: background-color 0.3s ease;
+}
+
+.tag-list li .delete-button:hover {
+  background-color: #c82333;
+}
+
+/* --- 模態框樣式 --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色背景 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* 確保在最上層 */
+}
+
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.modal-input, .modal-select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1em;
+}
+
+.modal-select-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.modal-select-group label {
+  font-weight: bold;
+  color: #555;
+  min-width: 60px; /* 確保標籤寬度一致 */
+}
+
+.modal-tag-selection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-tag-selection span {
+  font-weight: bold;
+  color: #555;
+}
+
+.modal-tag-selection .tag-buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.modal-tag-selection button {
+  padding: 8px 15px;
+  background-color: #e9ecef;
+  color: #495057;
+  border: 1px solid #ced4da;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.modal-tag-selection button.selected-tag {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end; /* 按鈕靠右 */
+  gap: 10px;
+  margin-top: 20px;
+}
+
+
+/* --- 響應式設計調整 --- */
+@media (max-width: 768px) {
+  .App {
+    padding: 20px 10px;
+  }
+
+  .main-title {
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+
+  .top-cards-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .card, .manage-section {
+    padding: 15px 20px;
+  }
+
+  .add-tag {
+    flex-direction: column;
+  }
+
+  .add-tag .button {
+    width: 100%;
+  }
+
+  .modal-select-group {
+    flex-direction: column; /* 垂直排列標籤和輸入框 */
+    align-items: flex-start;
+    gap: 5px;
+  }
+}
