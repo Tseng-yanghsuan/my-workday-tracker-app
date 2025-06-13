@@ -4,12 +4,16 @@ from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from datetime import datetime
+import os # 確保有這行，用於讀取環境變數
 
 app = Flask(__name__)
 
 # --- 資料庫配置 ---
-# 使用 SQLite 資料庫，儲存在 instance 資料夾中
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+# 從環境變數 DATABASE_URL 中獲取資料庫連接字串
+# 如果在 Render 上部署，Render 會自動提供 DATABASE_URL
+# 如果在本地運行，可以設定一個本地的 DATABASE_URL 環境變數或使用 SQLite (例如：'sqlite:///site.db')
+# 注意：在 Render 上使用 SQLite 會導致數據在每次部署或服務重啟後丟失，因此使用 PostgreSQL 更佳。
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///site.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # 禁用追蹤物件修改的通知
 
 db = SQLAlchemy(app)
