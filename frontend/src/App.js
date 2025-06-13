@@ -9,7 +9,7 @@ import WorkingHoursCard from './components/WorkingHoursCard';
 import TimeTrackerCard from './components/TimeTrackerCard';
 import TaskBoard from './components/TaskBoard'; // 新的任務看板組件
 
-const API_BASE_URL = 'http://127.0.0.1:5000';
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://127.0.0.1:5000';
 
 function App() {
   const [todos, setTodos] = useState([]);
