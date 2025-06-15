@@ -23,11 +23,37 @@ function App() {
   const [newTodoDueDate, setNewTodoDueDate] = useState(''); // YYYY-MM-DD 格式
   const [newTodoSelectedTagIds, setNewTodoSelectedTagIds] = useState([]);
 
-  // --- 數據獲取 ---
+  // --- 數據獲取與初始化 ---
   useEffect(() => {
-    fetchTodos();
-    fetchTags();
+    // 在組件第一次載入時清空所有數據 (僅為演示目的，會清空所有人的數據！)
+    clearAllDataOnLoad();
+    // 延遲一點點時間獲取數據，確保清空操作完成
+    const timer = setTimeout(() => {
+      fetchTodos();
+      fetchTags();
+    }, 100); // 延遲 100 毫秒
+
+    return () => clearTimeout(timer); // 清理定時器
   }, []);
+
+  const clearAllDataOnLoad = async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/clear_all_data`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+      });
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      console.log(data.message); // 打印成功訊息
+    } catch (error) {
+      console.error('Error clearing data on load:', error);
+      // 即使清空失敗，也繼續嘗試載入數據
+    }
+  };
+
 
   const fetchTodos = async () => {
     try {
@@ -165,6 +191,28 @@ function App() {
     return todos.filter(todo => todo.status === status);
   };
 
+  // --- 新增：周結算/歸檔已完成事項的功能 ---
+  const handleArchiveCompletedTodos = async () => {
+    if (window.confirm('您確定要歸檔所有已完成的任務嗎？此操作不可逆！')) {
+      try {
+        const response = await fetch(`${API_BASE_URL}/todos/archive_completed`, {
+          method: 'DELETE',
+        });
+        if (!response.ok) {
+          const errorData = await response.json(); // 嘗試讀取錯誤訊息
+          throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        alert(data.message);
+        fetchTodos(); // 重新獲取所有待辦事項以更新 UI
+      } catch (error) {
+        console.error('Error archiving completed todos:', error);
+        alert('歸檔已完成任務失敗！請檢查後端是否運行。');
+      }
+    }
+  };
+
+
   return (
     <div className="App">
       <h1 className="main-title">Workday Tracker</h1>
@@ -263,6 +311,17 @@ function App() {
             </li>
           ))}
         </ul>
+
+        {/* 新增：周結算按鈕 */}
+        <div style={{ marginTop: '20px', paddingTop: '20px', borderTop: '1px solid #eee' }}>
+          <h3>周結算</h3>
+          <button onClick={handleArchiveCompletedTodos} className="button secondary">
+            歸檔所有已完成任務
+          </button>
+          <p style={{ fontSize: '0.8em', color: '#666' }}>
+            點擊此按鈕將從列表中永久刪除所有狀態為「已完成」的任務。
+          </p>
+        </div>
       </div>
     </div>
   );
