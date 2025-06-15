@@ -17,7 +17,7 @@
 
 .date-card h2 {
     color: #fff;
-    font-size: 1.2em; /* 縮小月份字體 */
+    font-size: 2em; /* 縮小月份字體 */
     margin-bottom: 5px; /* 調整間距 */
     font-weight: 600;
     width: 100%;
@@ -28,7 +28,7 @@
 }
 
 .date-card .date-number {
-    font-size: 3.0em; /* 縮小日期數字 */
+    font-size: 5.0em; /* 縮小日期數字 */
     font-weight: 800;
     line-height: 1.2; /* 調整行高 */
     margin-top: 5px; /* 調整頂部間距 */

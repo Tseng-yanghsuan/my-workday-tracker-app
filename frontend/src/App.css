@@ -36,7 +36,7 @@ body {
 .top-cards-container {
     display: grid;
     /* 核心變動：設定明確的網格列比例為 1fr 2fr 2fr */
-    grid-template-columns: 1fr 2fr 2fr;
+    grid-template-columns: 1fr 2.5fr 2.5fr;
     gap: 30px;
     margin-bottom: 50px;
 }
@@ -280,7 +280,7 @@ body {
 }
 
 .manage-section h3 {
-    color: #495057;
+    color: #d3e2f2;
     margin-bottom: 20px;
     font-size: 1.6em;
     font-weight: 600;
