@@ -2,61 +2,64 @@
 
 .task-board {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px; /* 列間距 */
-    margin-top: 40px; /* 增加與上方卡片的間距 */
-    margin-bottom: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .task-column {
-    background-color: #fdfdfd;
-    border-radius: 16px; /* 更大的圓角 */
-    padding: 20px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); /* 更輕的陰影 */
-    min-height: 350px; /* 確保列有一定高度 */
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+    min-height: 400px;
 }
 
 .task-column-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 25px; /* 增加標題與任務列表間距 */
-    padding-bottom: 0px; /* 移除底部內邊距 */
-    border-bottom: none; /* 移除底部邊框 */
+    margin-bottom: 30px;
+    padding-bottom: 0px;
+    border-bottom: none;
 }
 
 .task-column h3 {
-    font-size: 1.8em; /* 稍微增大 */
-    color: #4a5568; /* 柔和的深灰色 */
+    font-size: 2em;
+    color: #495057;
     display: flex;
     align-items: center;
-    font-weight: 600; /* 稍微加粗 */
+    font-weight: 700;
 }
 
 .status-dot {
-    width: 14px; /* 稍微增大 */
-    height: 14px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
-    margin-right: 10px;
+    margin-right: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-.status-dot.to-do { background-color: #FFC107; } /* 黃色 */
-.status-dot.doing { background-color: #17A2B8; } /* 藍綠色 */
-.status-dot.done { background-color: #28A745; } /* 綠色 */
+.status-dot.to-do { background-color: #ffc107; }
+.status-dot.doing { background-color: #17a2b8; }
+.status-dot.done { background-color: #28a745; }
 
 .add-todo-button {
-    background-color: #3f51b5; /* 藍色 */
+    background-color: #3b4a77; /* 主品牌藍色修正 */
     color: white;
     border: none;
-    border-radius: 10px; /* 更大圓角 */
-    padding: 10px 20px; /* 調整內邊距 */
-    font-size: 1em;
-    font-weight: 500;
+    border-radius: 12px;
+    padding: 12px 22px;
+    font-size: 1.05em;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 3px 10px rgba(59, 74, 119, 0.2); /* 藍色陰影修正 */
 }
 
 .add-todo-button:hover {
-    background-color: #303f9f;
+    background-color: #2e3a5e; /* 主品牌藍色 Hover */
+    transform: translateY(-2px);
 }
 
 .task-list {
@@ -67,59 +70,59 @@
 
 .todo-item {
     background-color: #ffffff;
-    border: 1px solid #f0f0f0; /* 更淺的邊框 */
-    border-radius: 12px; /* 更大圓角 */
-    padding: 18px; /* 增加內邊距 */
-    margin-bottom: 18px; /* 增加間距 */
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04); /* 更輕的陰影 */
+    border: 1px solid #e9ecef;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .todo-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 .todo-title {
-    font-size: 1.25em; /* 稍微增大 */
+    font-size: 1.35em;
     font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
+    color: #343a40;
+    margin-bottom: 12px;
     word-wrap: break-word;
 }
 
 .todo-details {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px; /* 稍微增大間距 */
-    font-size: 0.9em;
+    gap: 12px;
+    font-size: 0.95em;
     color: #777;
-    margin-bottom: 15px; /* 稍微增大間距 */
+    margin-bottom: 18px;
 }
 
 .todo-detail-item {
-    background-color: #e8eaf6; /* 淺藍色背景 */
-    color: #3f51b5; /* 藍色字體 */
-    padding: 5px 10px; /* 調整內邊距 */
-    border-radius: 6px; /* 稍微增大圓角 */
+    background-color: #e3f2fd;
+    color: #2196f3;
+    padding: 6px 12px;
+    border-radius: 8px;
     white-space: nowrap;
-    font-weight: 500; /* 稍微加粗 */
+    font-weight: 500;
 }
 
 .todo-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px; /* 稍微增大間距 */
+    gap: 8px;
     margin-top: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 18px;
 }
 
 .todo-tag {
-    background-color: #e0f2f7; /* 淺藍綠色 */
-    color: #00796b; /* 深藍綠色 */
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-size: 0.85em; /* 稍微增大 */
+    background-color: #e0f7fa;
+    color: #00796b;
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 0.9em;
     white-space: nowrap;
 }
 
@@ -131,76 +134,122 @@
 }
 
 .todo-actions .button {
-    padding: 8px 15px;
-    border-radius: 8px; /* 更大圓角 */
+    padding: 10px 18px;
+    border-radius: 10px;
     border: none;
     cursor: pointer;
-    font-size: 0.9em;
+    font-size: 1em;
     font-weight: 500;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 .todo-actions .button.status-button {
-    background-color: #78909c; /* 柔和的灰色 */
+    background-color: #607d8b;
     color: white;
 }
 .todo-actions .button.status-button:hover {
-    background-color: #607d8b;
+    background-color: #455a64;
+    transform: translateY(-2px);
 }
 
 .todo-actions .button.delete-button {
-    background-color: #ef5350; /* 柔和的紅色 */
+    background-color: #ef5350;
     color: white;
 }
 .todo-actions .button.delete-button:hover {
     background-color: #e53935;
+    transform: translateY(-2px);
 }
 
 .status-dropdown {
-    padding: 8px 12px;
-    border-radius: 8px; /* 更大圓角 */
-    border: 1px solid #ccc;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid #ced4da;
     background-color: white;
-    font-size: 0.9em;
+    font-size: 0.95em;
     cursor: pointer;
     margin-right: 10px;
-    appearance: none; /* 移除預設下拉箭頭 */
-    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23333%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-25.7%200L146.2%20202.7%2034.4%2069.4a17.6%2017.6%200%200%200-25.7%200%2017.6%2017.6%200%200%200%200%2025.7l126.6%20126.6a17.6%2017.6%200%200%200%2025.7%200l126.6-126.6a17.6%2017.6%200%200%200%200-25.7z%22%2F%3E%3C%2Fsvg%3E');
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%236c757d%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-25.7%200L146.2%20202.7%2034.4%2069.4a17.6%2017.6%200%200%200-25.7%200%2017.6%2017.6%200%200%200%200%2025.7l126.6%20126.6a17.6%2017.6%200%200%200%2025.7%200l126.6-126.6a17.6%2017.6%200%200%200%200-25.7z%22%2F%3E%3C%2Fsvg%3E');
     background-repeat: no-repeat;
-    background-position: right 8px center;
-    background-size: 10px;
+    background-position: right 10px center;
+    background-size: 12px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.status-dropdown:focus {
+    border-color: #3b4a77; /* 調整 focus 藍色 */
+    box-shadow: 0 0 0 0.2rem rgba(59, 74, 119, 0.25); /* 調整 focus 藍色陰影 */
+    outline: none;
 }
 
-/* 響應式設計 */
+/* 響應式設計 (僅針對 TaskBoard 自身) */
+@media (max-width: 992px) {
+    .task-board {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+    .task-column {
+        padding: 20px;
+    }
+    .task-column h3 {
+        font-size: 1.8em;
+    }
+    .add-todo-button {
+        padding: 10px 18px;
+        font-size: 0.95em;
+    }
+    .todo-item {
+        padding: 18px;
+        margin-bottom: 18px;
+    }
+    .todo-title {
+        font-size: 1.25em;
+    }
+}
+
 @media (max-width: 768px) {
     .task-board {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-
     .task-column {
-        padding: 15px;
+        padding: 18px;
         min-height: auto;
+    }
+    .task-column-header {
+        margin-bottom: 25px;
     }
     .task-column h3 {
         font-size: 1.6em;
     }
     .add-todo-button {
-        padding: 8px 15px;
+        padding: 10px 18px;
         font-size: 0.9em;
     }
     .todo-item {
         padding: 15px;
         margin-bottom: 15px;
+        border-radius: 12px;
     }
     .todo-title {
-        font-size: 1.1em;
+        font-size: 1.15em;
+    }
+    .todo-actions .button {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+    .status-dropdown {
+        padding: 8px 12px;
+        font-size: 0.9em;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
     .task-board {
         gap: 15px;
+    }
+    .task-column {
+        padding: 15px;
     }
     .todo-item {
         padding: 12px;
