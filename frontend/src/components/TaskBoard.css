@@ -45,7 +45,7 @@
 .status-dot.done { background-color: #28a745; }
 
 .add-todo-button {
-    background-color: #3b4a77; /* 主品牌藍色修正 */
+    background-color: #3b4a77;
     color: white;
     border: none;
     border-radius: 12px;
@@ -54,11 +54,11 @@
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 3px 10px rgba(59, 74, 119, 0.2); /* 藍色陰影修正 */
+    box-shadow: 0 3px 10px rgba(59, 74, 119, 0.2);
 }
 
 .add-todo-button:hover {
-    background-color: #2e3a5e; /* 主品牌藍色 Hover */
+    background-color: #2e3a5e;
     transform: translateY(-2px);
 }
 
@@ -177,8 +177,8 @@
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .status-dropdown:focus {
-    border-color: #3b4a77; /* 調整 focus 藍色 */
-    box-shadow: 0 0 0 0.2rem rgba(59, 74, 119, 0.25); /* 調整 focus 藍色陰影 */
+    border-color: #3b4a77;
+    box-shadow: 0 0 0 0.2rem rgba(59, 74, 119, 0.25);
     outline: none;
 }
 
@@ -209,7 +209,7 @@
 
 @media (max-width: 768px) {
     .task-board {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* 單列佈局 */
         gap: 20px;
     }
     .task-column {

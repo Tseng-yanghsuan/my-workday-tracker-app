@@ -1,7 +1,7 @@
 /* frontend/src/components/TimeTrackerCard.css */
 
 .time-tracker-card .button {
-    background-color: #3b4a77; /* 主品牌藍色修正 */
+    background-color: #3b4a77;
     color: white;
     border: none;
     padding: 16px 35px;
@@ -11,11 +11,11 @@
     font-weight: 700;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
     margin-top: 25px;
-    box-shadow: 0 5px 15px rgba(59, 74, 119, 0.25); /* 藍色調陰影修正 */
+    box-shadow: 0 5px 15px rgba(59, 74, 119, 0.25);
 }
 
 .time-tracker-card .button:hover {
-    background-color: #2e3a5e; /* 主品牌藍色 Hover */
+    background-color: #2e3a5e;
     transform: translateY(-4px);
     box-shadow: 0 8px 20px rgba(59, 74, 119, 0.35);
 }

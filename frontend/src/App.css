@@ -36,16 +36,17 @@ body {
 .top-cards-container {
     display: grid;
     /* 核心變動：設定明確的網格列比例 */
-    grid-template-columns: 1.5fr 1fr 1fr; /* 左側卡片 (日期) 佔據更多空間，約 37.5%，其餘兩個平分 62.5% */
+    /* auto 會讓第一列寬度由 DateCard 的內容決定，使其可以變窄 */
+    grid-template-columns: auto 1fr 1fr;
     gap: 30px;
     margin-bottom: 50px;
 }
 
-/* 通用卡片樣式 */
+/* 通用卡片樣式 - 這些也會被個別組件的 card 類應用 */
 .card {
     background-color: #ffffff;
     border-radius: 20px;
-    padding: 30px;
+    padding: 20px 30px; /* 縮小垂直 padding，使卡片整體高度變矮 */
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
     display: flex;
     flex-direction: column;
@@ -380,9 +381,11 @@ body {
         max-width: 1200px; /* 在較小的高解析度螢幕上縮小總寬度 */
     }
 }
-@media (max-width: 1024px) { /* 新增斷點以調整卡片比例，使其不會過窄 */
+@media (max-width: 1024px) { /* 這個斷點保持 auto 1fr 1fr 布局 */
     .top-cards-container {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 在這裡恢復自動適應，防止卡片過窄 */
+        /* 在這裡不再使用 auto-fit，維持 auto 1fr 1fr 比例 */
+        /* 如果螢幕寬度不足以容納，則在 768px 以下直接堆疊 */
+        grid-template-columns: auto 1fr 1fr;
         gap: 25px;
     }
 }
@@ -419,7 +422,7 @@ body {
         margin-bottom: 30px;
     }
     .top-cards-container {
-        grid-template-columns: 1fr; /* 單列佈局 */
+        grid-template-columns: 1fr; /* 單列佈局，此處堆疊 */
         gap: 20px;
     }
     .card {

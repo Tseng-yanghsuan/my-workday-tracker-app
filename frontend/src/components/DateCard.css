@@ -1,26 +1,26 @@
 /* frontend/src/components/DateCard.css */
 
 .date-card {
-    background-color: #3b4a77; /* 主品牌藍色修正 */
+    background-color: #3b4a77; /* 主品牌藍色 */
     color: #ffffff;
-    padding: 35px;
+    padding: 18px 25px; /* 縮小垂直 padding，使其更緊湊方正 */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(59, 74, 119, 0.3); /* 藍色調陰影修正 */
+    box-shadow: 0 10px 30px rgba(59, 74, 119, 0.3);
 }
 
 .date-card h2 {
     color: #fff;
-    font-size: 2.2em;
-    margin-bottom: 5px;
+    font-size: 1.6em; /* 縮小月份字體 */
+    margin-bottom: 0px; /* 進一步縮小間距 */
     font-weight: 600;
 }
 
 .date-card .date-number {
-    font-size: 5.5em;
+    font-size: 4.2em; /* 縮小日期數字 */
     font-weight: 800;
     line-height: 1;
     margin-top: 0;
