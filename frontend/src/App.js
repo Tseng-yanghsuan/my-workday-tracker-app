@@ -25,17 +25,14 @@ function App() {
 
   // --- 數據獲取與初始化 ---
   useEffect(() => {
-    // 在組件第一次載入時清空所有數據 (僅為演示目的，會清空所有人的數據！)
-    clearAllDataOnLoad();
-    // 延遲一點點時間獲取數據，確保清空操作完成
-    const timer = setTimeout(() => {
-      fetchTodos();
-      fetchTags();
-    }, 100); // 延遲 100 毫秒
+    // 移除 clearAllDataOnLoad() 的調用
+    // clearAllDataOnLoad();
+    fetchTodos();
+    fetchTags();
+  }, []); // 這裡的依賴陣列保持為空，表示只在組件首次載入時執行
 
-    return () => clearTimeout(timer); // 清理定時器
-  }, []);
-
+  // 移除 clearAllDataOnLoad 函數的定義
+  /*
   const clearAllDataOnLoad = async () => {
     try {
       const response = await fetch(`${API_BASE_URL}/clear_all_data`, {
@@ -53,6 +50,7 @@ function App() {
       // 即使清空失敗，也繼續嘗試載入數據
     }
   };
+  */
 
 
   const fetchTodos = async () => {
@@ -191,7 +189,7 @@ function App() {
     return todos.filter(todo => todo.status === status);
   };
 
-  // --- 新增：周結算/歸檔已完成事項的功能 ---
+  // --- 周結算/歸檔所有已完成的待辦事項的功能 ---
   const handleArchiveCompletedTodos = async () => {
     if (window.confirm('您確定要歸檔所有已完成的任務嗎？此操作不可逆！')) {
       try {
@@ -312,7 +310,7 @@ function App() {
           ))}
         </ul>
 
-        {/* 新增：周結算按鈕 */}
+        {/* 周結算按鈕 (保持不動，這個功能是您希望保留的) */}
         <div style={{ marginTop: '20px', paddingTop: '20px', borderTop: '1px solid #eee' }}>
           <h3>周結算</h3>
           <button onClick={handleArchiveCompletedTodos} className="button secondary">
