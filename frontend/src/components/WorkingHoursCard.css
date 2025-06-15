@@ -1,36 +1,39 @@
 /* frontend/src/components/WorkingHoursCard.css */
 
+/* 移除 .progress-circle 的所有樣式 */
+/*
 .working-hours-card .progress-circle {
-    width: 70px; /* 進一步縮小圓環大小 */
+    width: 70px;
     height: 70px;
     border-radius: 50%;
     background: conic-gradient(#28a745 0% 0%, #e9ecef 0% 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 10px; /* 調整間距 */
-    font-size: 1.1em; /* 適度縮小字體 */
+    margin-top: 10px;
+    font-size: 1.1em;
     font-weight: bold;
     color: #28a745;
     box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
 }
+*/
 
 .working-hours-card .hours-display {
-    font-size: 2.0em; /* 適度縮小字體 */
+    font-size: 1.5em;
     font-weight: bold;
     color: #343a40;
-    margin-bottom: 5px; /* 縮小底部間距 */
+    margin-bottom: 5px;
     margin-top: 10px; /* 調整與標題的間距 */
-    width: 100%; /* 確保佔滿寬度 */
-    text-align: center; /* 居中 */
+    width: 100%;
+    text-align: center;
 }
 
 .working-hours-card p { /* 針對 "Completed X.X Hours" */
-    margin-top: 5px; /* 調整頂部間距 */
-    font-size: 0.95em; /* 適度縮小字體 */
+    margin-top: 5px;
+    font-size: 0.95em;
     color: #6c757d;
-    width: 100%; /* 確保佔滿寬度 */
-    text-align: center; /* 居中 */
+    width: 100%;
+    text-align: center;
 }
 
 /* 確保通用卡片的 H2 有正確的 border-bottom */
@@ -40,4 +43,6 @@
     padding-bottom: 8px; /* 為虛線提供空間 */
     border-bottom: 1px dotted #e0e0e0; /* 新增虛線 */
     box-sizing: border-box;
+    /* 新增或調整，確保標題上方有足夠間距，避免太靠近卡片頂部 */
+    margin-top: 0;
 }
