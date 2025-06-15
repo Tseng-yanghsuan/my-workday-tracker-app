@@ -1,20 +1,26 @@
 // frontend/src/components/WorkingHoursCard.js
 import React from 'react';
-import './WorkingHoursCard.css';
+import './WorkingHoursCard.css'; // 引入其專屬 CSS
 
-function WorkingHoursCard({ totalHours = 0.0, completedHours = 0.0 }) {
-  // 這裡您可以根據實際數據計算進度百分比
-  const progress = totalHours > 0 ? Math.round((completedHours / totalHours) * 100) : 0;
+function WorkingHoursCard() {
+  // 這是一個靜態卡片，目前沒有實際的工時追蹤邏輯
+  const totalHours = 0.0; // 假設總工時
+  const completedHours = 0.0; // 假設已完成工時
+  const percentage = (completedHours / totalHours) * 100; // 目前為0
+
+  // 設置圓環進度條的樣式
+  const progressStyle = {
+    background: `conic-gradient(#4CAF50 ${percentage}%, #eee ${percentage}% 100%)`,
+  };
 
   return (
     <div className="card working-hours-card">
-      <div className="hours-info">
-        <div className="card-title">Working Hours</div>
-        <div className="hours">{totalHours.toFixed(1)} <span className="hours-unit">Hours</span></div>
-        <div className="completed-hours">Completed {completedHours.toFixed(1)} Hours</div>
+      <h2>Working Hours</h2>
+      <p className="hours-display">{totalHours.toFixed(1)} Hours</p>
+      <div className="progress-circle" style={progressStyle}>
+        {percentage.toFixed(0)}%
       </div>
-      {/* 這裡可以整合一個真正的圓形進度條庫，例如 react-circular-progressbar */}
-      <div className="progress-circle">{progress}%</div>
+      <p>Completed {completedHours.toFixed(1)} Hours</p>
     </div>
   );
 }

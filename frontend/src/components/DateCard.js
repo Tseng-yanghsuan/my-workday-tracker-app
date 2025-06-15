@@ -1,17 +1,16 @@
 // frontend/src/components/DateCard.js
 import React from 'react';
-import './DateCard.css';
+import './DateCard.css'; // 引入其專屬 CSS
 
 function DateCard() {
-  const today = new Date();
-  const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-  const currentMonth = monthNames[today.getMonth()];
-  const currentDay = today.getDate();
+  const currentDate = new Date();
+  const month = currentDate.toLocaleString('en-US', { month: 'short' }).toUpperCase();
+  const day = currentDate.getDate();
 
   return (
     <div className="card date-card">
-      <div className="month">{currentMonth}</div>
-      <div className="day">{currentDay}</div>
+      <h2>{month}</h2>
+      <p className="date-number">{day}</p>
     </div>
   );
 }

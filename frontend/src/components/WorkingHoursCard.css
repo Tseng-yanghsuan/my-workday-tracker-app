@@ -1,45 +1,23 @@
 /* frontend/src/components/WorkingHoursCard.css */
-.working-hours-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+
+.working-hours-card .progress-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: conic-gradient(#4CAF50 0% 0%, #eee 0% 100%); /* 預設綠色進度條 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #4CAF50;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
 }
 
-.working-hours-card .hours-info {
-  text-align: center;
-  flex-grow: 1;
-  margin-right: 20px;
-}
-
-.working-hours-card .hours {
-  font-size: 2.8em;
-  font-weight: bold;
-  color: #2c3e50;
-  margin-bottom: 5px;
-}
-
-.working-hours-card .hours-unit {
-  font-size: 0.5em;
-  color: #666;
-  font-weight: normal;
-  vertical-align: middle;
-}
-
-.working-hours-card .completed-hours {
-  font-size: 0.9em;
-  color: #888;
-}
-
-.progress-circle {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  border: 10px solid #e0e0e0; /* 灰色背景環 */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.3em;
-  font-weight: bold;
-  color: #3498db; /* 進度百分比顏色 */
-  /* 要實現進度填充，需要更複雜的CSS（如 conic-gradient）或使用第三方庫 */
+.working-hours-card .hours-display {
+    font-size: 2.2em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
 }

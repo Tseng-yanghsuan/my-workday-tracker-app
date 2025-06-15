@@ -1,28 +1,18 @@
 /* frontend/src/components/TimeTrackerCard.css */
-.time-tracker-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+
+.time-tracker-card .button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
 }
 
-.time-tracker-card .card-title {
-  margin-bottom: 15px;
-}
-
-.log-time-button {
-  background-color: #3498db;
-  color: white;
-  padding: 12px 30px;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.1em;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-weight: bold;
-}
-
-.log-time-button:hover {
-  background-color: #217dbb;
+.time-tracker-card .button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
 }
