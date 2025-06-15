@@ -198,4 +198,29 @@ def archive_completed_todos():
         # 找到所有 status 為 'done' 的 Todo 項目
         completed_todos = Todo.query.filter_by(status='done').all()
         if not completed_todos:
-            return jsonify({'message': '
+            return jsonify({'message': 'No completed todos to archive'}), 200
+
+        for todo in completed_todos:
+            # db.session.delete(todo) 會自動處理關聯的 todo_tags 記錄
+            db.session.delete(todo)
+        db.session.commit()
+        return jsonify({'message': f'Archived {len(completed_todos)} completed todos successfully'}), 200
+    except Exception as e:
+        db.session.rollback()
+        print(f"Error archiving completed todos: {e}")
+        return jsonify({'error': 'Failed to archive completed todos', 'details': str(e)}), 500
+
+
+# ===============================================================
+# 應用程式啟動
+# ===============================================================
+
+# 確保在應用程式上下文中創建資料庫表
+# 這行程式碼會在您直接運行 `python app.py` 時執行
+# 但當您通過 Gunicorn 或 `init_db.py` 運行時，它可能不會被直接調用，
+# 所以我們額外創建了 init_db.py 來確保 db.create_all() 執行。
+if __name__ == '__main__':
+    with app.app_context():
+        db.create_all() # 確保在應用程式上下文中創建所有表
+        print("Database tables ensured.")
+    app.run(debug=True)
