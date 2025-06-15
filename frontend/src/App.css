@@ -14,7 +14,7 @@ body {
 
 .App {
     padding: 40px;
-    max-width: 1200px;
+    max-width: 1400px; /* 保持這個寬度，為新比例提供足夠空間 */
     margin: 40px auto;
     background-color: #ffffff;
     border-radius: 24px;
@@ -24,7 +24,7 @@ body {
 
 .main-title {
     text-align: center;
-    color: #3b4a77; /* 主品牌藍色修正 */
+    color: #3b4a77;
     margin-bottom: 50px;
     font-size: 3.5em;
     font-weight: 800;
@@ -35,7 +35,8 @@ body {
 /* 頂部卡片容器 */
 .top-cards-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* 核心變動：設定明確的網格列比例 */
+    grid-template-columns: 1.5fr 1fr 1fr; /* 左側卡片 (日期) 佔據更多空間，約 37.5%，其餘兩個平分 62.5% */
     gap: 30px;
     margin-bottom: 50px;
 }
@@ -124,8 +125,8 @@ body {
 }
 
 .modal-input:focus {
-    border-color: #3b4a77; /* 調整 focus 藍色 */
-    box-shadow: 0 0 0 0.2rem rgba(59, 74, 119, 0.25); /* 調整 focus 藍色陰影 */
+    border-color: #3b4a77;
+    box-shadow: 0 0 0 0.2rem rgba(59, 74, 119, 0.25);
     outline: none;
 }
 
@@ -157,8 +158,8 @@ body {
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .modal-select:focus {
-    border-color: #3b4a77; /* 調整 focus 藍色 */
-    box-shadow: 0 0 0 0.2rem rgba(59, 74, 119, 0.25); /* 調整 focus 藍色陰影 */
+    border-color: #3b4a77;
+    box-shadow: 0 0 0 0.2rem rgba(59, 74, 119, 0.25);
     outline: none;
 }
 
@@ -200,14 +201,14 @@ body {
 }
 
 .tag-buttons-container button.selected-tag {
-    background-color: #3b4a77; /* 主品牌藍色修正 */
+    background-color: #3b4a77;
     color: white;
-    border-color: #3b4a77; /* 主品牌藍色修正 */
+    border-color: #3b4a77;
 }
 
 .tag-buttons-container button.selected-tag:hover {
-    background-color: #2e3a5e; /* 主品牌藍色 Hover */
-    border-color: #2e3a5e; /* 主品牌藍色 Hover */
+    background-color: #2e3a5e;
+    border-color: #2e3a5e;
 }
 
 
@@ -229,13 +230,13 @@ body {
 }
 
 .modal-button.primary {
-    background-color: #3b4a77; /* 主品牌藍色修正 */
+    background-color: #3b4a77;
     color: white;
-    box-shadow: 0 4px 12px rgba(59, 74, 119, 0.3); /* 藍色陰影修正 */
+    box-shadow: 0 4px 12px rgba(59, 74, 119, 0.3);
 }
 
 .modal-button.primary:hover {
-    background-color: #2e3a5e; /* 主品牌藍色 Hover */
+    background-color: #2e3a5e;
     transform: translateY(-3px);
     box-shadow: 0 6px 16px rgba(59, 74, 119, 0.4);
 }
@@ -263,7 +264,7 @@ body {
 }
 
 .manage-section h2 {
-    color: #3b4a77; /* 主品牌藍色修正 */
+    color: #3b4a77;
     margin-bottom: 30px;
     font-size: 2.2em;
     text-align: center;
@@ -294,13 +295,13 @@ body {
 }
 
 .input-field:focus {
-    border-color: #3b4a77; /* 調整 focus 藍色 */
-    box-shadow: 0 0 0 0.2rem rgba(59, 74, 119, 0.25); /* 調整 focus 藍色陰影 */
+    border-color: #3b4a77;
+    box-shadow: 0 0 0 0.2rem rgba(59, 74, 119, 0.25);
     outline: none;
 }
 
 .button.primary { /* 用於管理標籤的按鈕 */
-    background-color: #3b4a77; /* 主品牌藍色修正 */
+    background-color: #3b4a77;
     color: white;
     border: none;
     padding: 12px 25px;
@@ -312,7 +313,7 @@ body {
 }
 
 .button.primary:hover {
-    background-color: #2e3a5e; /* 主品牌藍色 Hover */
+    background-color: #2e3a5e;
     transform: translateY(-2px);
 }
 
@@ -335,22 +336,19 @@ body {
 }
 
 .tag-list li .delete-button {
-    /* 這裡將被修改為圖標樣式，請同時更新 App.js 中的 delete-tag 函式，確保刪除按鈕是個 <span> 或 <i> */
-    background: none; /* 移除背景 */
-    border: none; /* 移除邊框 */
-    color: #dc3545; /* 紅色叉叉顏色 */
-    font-size: 1.5em; /* 增大圖標尺寸 */
+    background: none;
+    border: none;
+    color: #dc3545;
+    font-size: 1.5em;
     cursor: pointer;
-    padding: 5px; /* 增加點擊區域 */
+    padding: 5px;
     transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .tag-list li .delete-button:hover {
-    color: #c82333; /* hover 時顏色變深 */
-    transform: scale(1.1); /* hover 時稍微放大 */
+    color: #c82333;
+    transform: scale(1.1);
 }
-/* 如果使用 Font Awesome 等圖標庫，可以在這裡定義具體的圖標樣式 */
-
 
 .button.secondary {
     background-color: #f0f2f5;
@@ -377,6 +375,17 @@ body {
 }
 
 /* 響應式設計 - 優化 */
+@media (max-width: 1400px) {
+    .App {
+        max-width: 1200px; /* 在較小的高解析度螢幕上縮小總寬度 */
+    }
+}
+@media (max-width: 1024px) { /* 新增斷點以調整卡片比例，使其不會過窄 */
+    .top-cards-container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 在這裡恢復自動適應，防止卡片過窄 */
+        gap: 25px;
+    }
+}
 @media (max-width: 992px) {
     .App {
         padding: 30px;
@@ -410,7 +419,7 @@ body {
         margin-bottom: 30px;
     }
     .top-cards-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* 單列佈局 */
         gap: 20px;
     }
     .card {
