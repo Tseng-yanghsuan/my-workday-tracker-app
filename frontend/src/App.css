@@ -1,4 +1,4 @@
-/* frontend/src/App.css - 僅包含主架構和全域樣式 */
+/* frontend/src/App.css - 調整為更簡潔的佈局和顏色 */
 
 /* 全域樣式和排版 */
 body {
@@ -7,43 +7,44 @@ body {
     -moz-osx-font-smoothing: grayscale;
     margin: 0;
     padding: 0;
-    background-color: #f0f2f5; /* 輕微的背景色 */
+    background-color: #f7f8fa; /* 淺灰色背景，更柔和 */
     color: #333;
+    line-height: 1.6;
 }
 
 .App {
-    padding: 20px;
-    max-width: 1200px; /* 限制整體寬度 */
-    margin: 20px auto; /* 居中顯示 */
+    padding: 30px; /* 增加整體內邊距 */
+    max-width: 1100px; /* 稍微收窄最大寬度 */
+    margin: 30px auto; /* 居中顯示 */
     background-color: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box; /* 確保 padding 不會增加總寬度 */
+    border-radius: 20px; /* 圓角更大 */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); /* 更柔和的陰影 */
+    box-sizing: border-box;
 }
 
 .main-title {
     text-align: center;
-    color: #2c3e50;
-    margin-bottom: 30px;
-    font-size: 2.8em;
+    color: #3f51b5; /* 更深的藍色調 */
+    margin-bottom: 40px; /* 增加底部間距 */
+    font-size: 3em; /* 稍微增大字體 */
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px; /* 增加字母間距 */
 }
 
 /* 頂部卡片容器 */
 .top-cards-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 自動適應列，最小280px */
-    gap: 25px; /* 卡片間距 */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px; /* 增加卡片間距 */
     margin-bottom: 40px;
 }
 
-/* 通用卡片樣式 */
+/* 通用卡片樣式 - 這些也會被個別組件的 card 類應用 */
 .card {
     background-color: #ffffff;
-    border-radius: 12px;
+    border-radius: 16px; /* 更大的圓角 */
     padding: 25px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); /* 更輕的陰影 */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -54,22 +55,24 @@ body {
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* hover 時陰影略深 */
 }
 
 .card h2 {
-    color: #444;
-    font-size: 1.5em;
+    color: #4a5568; /* 柔和的深灰色 */
+    font-size: 1.6em;
     margin-bottom: 15px;
+    font-weight: 600;
 }
 
 .card p {
     font-size: 1.1em;
-    color: #666;
+    color: #6a768f; /* 柔和的中灰色 */
     margin-top: 5px;
 }
 
-/* 模態框樣式 - 全域性的模態框 */
+
+/* 模態框樣式 - 保留 */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -80,7 +83,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* 確保在最上層 */
+    z-index: 1000;
 }
 
 .modal-content {
@@ -90,8 +93,8 @@ body {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
     width: 90%;
     max-width: 500px;
-    animation: fadeIn 0.3s ease-out; /* 入場動畫 */
-    position: relative; /* 用於定位關閉按鈕 */
+    animation: fadeIn 0.3s ease-out;
+    position: relative;
 }
 
 @keyframes fadeIn {
@@ -107,13 +110,13 @@ body {
 }
 
 .modal-input {
-    width: calc(100% - 20px); /* 考慮 padding */
+    width: calc(100% - 20px);
     padding: 12px 10px;
     margin-bottom: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
     font-size: 1em;
-    box-sizing: border-box; /* 確保 padding 不會增加總寬度 */
+    box-sizing: border-box;
 }
 
 .modal-select-group {
@@ -136,7 +139,7 @@ body {
     border-radius: 8px;
     font-size: 1em;
     background-color: white;
-    appearance: none; /* 移除預設下拉箭頭 */
+    appearance: none;
     background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23333%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-25.7%200L146.2%20202.7%2034.4%2069.4a17.6%2017.6%200%200%200-25.7%200%2017.6%2017.6%200%200%200%200%2025.7l126.6%20126.6a17.6%2017.6%200%200%200%2025.7%200l126.6-126.6a17.6%2017.6%200%200%200%200-25.7z%22%2F%3E%3C%2Fsvg%3E');
     background-repeat: no-repeat;
     background-position: right 10px center;
@@ -225,20 +228,21 @@ body {
 }
 
 
-/* 標籤管理區塊 (這部分會保留在 App.css，因為它不是 TaskBoard 或其他卡片的直接子組件，更像是一個獨立的功能區塊) */
+/* 標籤管理區塊 */
 .manage-section {
-    margin-top: 40px;
+    margin-top: 50px; /* 增加與上方任務看板的間距 */
     padding: 30px;
-    background-color: #f9f9f9;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    background-color: #fcfcfc; /* 淺色背景，區別於主 App 容器 */
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); /* 與卡片類似的陰影 */
 }
 
 .manage-section h2 {
-    color: #333;
+    color: #3f51b5; /* 與主標題一致的藍色 */
     margin-bottom: 25px;
     font-size: 1.8em;
     text-align: center;
+    font-weight: 600;
 }
 
 .manage-section h3 {
@@ -256,14 +260,14 @@ body {
 .input-field {
     flex-grow: 1;
     padding: 10px 15px;
-    border: 1px solid #ccc;
+    border: 1px solid #e0e0e0; /* 更淺的邊框 */
     border-radius: 8px;
     font-size: 1em;
     box-sizing: border-box;
 }
 
 .button.primary {
-    background-color: #007bff;
+    background-color: #3f51b5; /* 藍色按鈕 */
     color: white;
     border: none;
     padding: 10px 20px;
@@ -274,7 +278,7 @@ body {
 }
 
 .button.primary:hover {
-    background-color: #0056b3;
+    background-color: #303f9f;
 }
 
 .tag-list {
@@ -285,18 +289,18 @@ body {
 
 .tag-list li {
     background-color: #ffffff;
-    border: 1px solid #eee;
+    border: 1px solid #f0f0f0; /* 非常淺的邊框 */
     padding: 10px 15px;
     margin-bottom: 10px;
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02); /* 輕微陰影 */
 }
 
 .tag-list li .delete-button {
-    background-color: #dc3545;
+    background-color: #ef5350; /* 柔和的紅色 */
     color: white;
     border: none;
     padding: 6px 12px;
@@ -307,12 +311,12 @@ body {
 }
 
 .tag-list li .delete-button:hover {
-    background-color: #c82333;
+    background-color: #e53935;
 }
 
 .button.secondary {
-    background-color: #f0f0f0;
-    color: #333;
+    background-color: #e0e0e0;
+    color: #555;
     border: 1px solid #ccc;
     padding: 10px 20px;
     border-radius: 8px;
@@ -322,7 +326,7 @@ body {
 }
 
 .button.secondary:hover {
-    background-color: #e0e0e0;
+    background-color: #d0d0d0;
     border-color: #bbb;
 }
 
@@ -332,20 +336,20 @@ body {
     color: #666;
 }
 
-/* 響應式設計 - 這部分仍然是全域性的，所以保留 */
+/* 響應式設計 */
 @media (max-width: 768px) {
     .App {
-        padding: 15px;
-        margin: 15px auto;
+        padding: 20px;
+        margin: 20px auto;
     }
 
     .main-title {
-        font-size: 2em;
+        font-size: 2.5em;
     }
 
     .top-cards-container {
-        grid-template-columns: 1fr; /* 單列佈局 */
-        gap: 15px;
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .card {
@@ -353,11 +357,11 @@ body {
     }
 
     .manage-section {
-        padding: 15px;
+        padding: 20px;
     }
 
     .add-tag {
-        flex-direction: column; /* 垂直堆疊 */
+        flex-direction: column;
     }
 
     .add-tag .input-field {
@@ -368,12 +372,12 @@ body {
 
 @media (max-width: 480px) {
     .App {
-        padding: 10px;
-        margin: 10px auto;
+        padding: 15px;
+        margin: 15px auto;
     }
 
     .main-title {
-        font-size: 1.8em;
+        font-size: 2.2em;
     }
 
     .modal-content {

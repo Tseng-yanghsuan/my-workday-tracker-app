@@ -1,22 +1,22 @@
 /* frontend/src/components/WorkingHoursCard.css */
 
 .working-hours-card .progress-circle {
-    width: 80px;
-    height: 80px;
+    width: 90px; /* 稍微增大 */
+    height: 90px;
     border-radius: 50%;
-    background: conic-gradient(#4CAF50 0% 0%, #eee 0% 100%); /* 預設綠色進度條 */
+    background: conic-gradient(#4CAF50 0% 0%, #e0e0e0 0% 100%); /* 淺灰色背景 */
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 15px;
-    font-size: 1.2em;
+    font-size: 1.3em; /* 稍微增大 */
     font-weight: bold;
     color: #4CAF50;
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.1); /* 柔和內陰影 */
 }
 
 .working-hours-card .hours-display {
-    font-size: 2.2em;
+    font-size: 2.5em; /* 稍微增大 */
     font-weight: bold;
     color: #333;
     margin-bottom: 10px;

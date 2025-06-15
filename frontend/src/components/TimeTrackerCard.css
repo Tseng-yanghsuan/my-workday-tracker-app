@@ -1,18 +1,19 @@
 /* frontend/src/components/TimeTrackerCard.css */
 
 .time-tracker-card .button {
-    background-color: #007bff;
+    background-color: #3f51b5; /* 藍色，與其他主色調一致 */
     color: white;
     border: none;
-    padding: 12px 25px;
-    border-radius: 8px;
+    padding: 14px 30px; /* 稍微增大按鈕 */
+    border-radius: 10px; /* 更大圓角 */
     cursor: pointer;
     font-size: 1.1em;
+    font-weight: 600; /* 稍微加粗字體 */
     transition: background-color 0.3s ease, transform 0.2s ease;
     margin-top: 20px;
 }
 
 .time-tracker-card .button:hover {
-    background-color: #0056b3;
+    background-color: #303f9f;
     transform: translateY(-2px);
 }
