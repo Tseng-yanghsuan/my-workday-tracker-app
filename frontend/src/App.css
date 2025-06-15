@@ -45,7 +45,7 @@ body {
 .card {
     background-color: #ffffff;
     border-radius: 20px;
-    padding: 20px 30px; /* 調整為統一的內邊距，高度主要由內容和 grid 決定 */
+    padding: 15px 15px; /* 調整為統一的內邊距，高度主要由內容和 grid 決定 */
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
     display: flex;
     flex-direction: column;
