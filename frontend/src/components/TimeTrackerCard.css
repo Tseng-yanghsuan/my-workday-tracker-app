@@ -1,16 +1,16 @@
 /* frontend/src/components/TimeTrackerCard.css */
 
 .time-tracker-card .button {
-    background-color: #3b4a77;
+    background-color: #3b4a77; /* 主品牌藍色 */
     color: white;
     border: none;
-    padding: 16px 35px;
+    padding: 10px 20px; /* 進一步縮小按鈕尺寸以適應卡片高度 */
     border-radius: 12px;
     cursor: pointer;
-    font-size: 1.2em;
+    font-size: 1.0em; /* 適度縮小字體 */
     font-weight: 700;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    margin-top: 25px;
+    margin-top: 15px; /* 調整按鈕頂部間距 */
     box-shadow: 0 5px 15px rgba(59, 74, 119, 0.25);
 }
 
@@ -18,4 +18,13 @@
     background-color: #2e3a5e;
     transform: translateY(-4px);
     box-shadow: 0 8px 20px rgba(59, 74, 119, 0.35);
+}
+
+/* 確保通用卡片的 H2 有正確的 border-bottom */
+.time-tracker-card h2 {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 8px; /* 為虛線提供空間 */
+    border-bottom: 1px dotted #e0e0e0; /* 新增虛線 */
+    box-sizing: border-box;
 }

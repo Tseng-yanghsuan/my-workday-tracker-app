@@ -3,25 +3,35 @@
 .date-card {
     background-color: #3b4a77; /* 主品牌藍色 */
     color: #ffffff;
-    padding: 18px 25px; /* 縮小垂直 padding，使其更緊湊方正 */
+    /* 關鍵變動：使用 aspect-ratio 確保長寬比 */
+    aspect-ratio: 1 / 1; /* 讓寬度與高度保持 1:1 比例 */
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* 垂直居中 */
+    align-items: center; /* 水平居中 */
+    padding: 10px; /* 縮小 padding，讓內容更緊湊 */
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(59, 74, 119, 0.3);
+    box-sizing: border-box; /* 確保 padding 不增加尺寸 */
 }
 
 .date-card h2 {
     color: #fff;
-    font-size: 1.6em; /* 縮小月份字體 */
-    margin-bottom: 0px; /* 進一步縮小間距 */
+    font-size: 1.2em; /* 縮小月份字體 */
+    margin-bottom: 5px; /* 調整間距 */
     font-weight: 600;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 5px; /* 為虛線增加 padding */
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.5); /* 白色半透明虛線 */
+    box-sizing: border-box;
 }
 
 .date-card .date-number {
-    font-size: 4.2em; /* 縮小日期數字 */
+    font-size: 3.0em; /* 縮小日期數字 */
     font-weight: 800;
-    line-height: 1;
-    margin-top: 0;
+    line-height: 1.2; /* 調整行高 */
+    margin-top: 5px; /* 調整頂部間距 */
+    text-align: center;
+    width: 100%;
 }
